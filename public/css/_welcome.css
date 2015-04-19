@@ -3,7 +3,10 @@
   background-size: cover;
   display: flex;
   justify-content: center;
-  /*height: 600px;*/
+}
+
+.site-info {
+  text-align: center;
 }
 
 .site-info > h1 {
@@ -15,27 +18,30 @@
   padding: 50px;
 }
 
-section.demo {
+section.demo > .steps {
+  display: flex;
   color: white;
   font-size: 26px;
+  justify-content: center;
   margin: 20px auto;
 }
 
 section.demo > .steps {
-  display: flex;
   background-color: black;
-  justify-content: space-between;
 }
 section.demo > .steps > div {
-  padding: 50px;
+  padding: 50px 0px;
+  text-align: center;
+  width: 20%;
+  transition: background-color 1s, text-shadow 1s;
 }
 
 .fa-caret-right {
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
-section.demo > .steps > div {
-  margin: 0px 50px;
+section.demo > .steps > div:hover {
+  text-shadow: 1px 1px 10px black;
 }
 
 section.demo > .steps > div:nth-child(2):hover {
