@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/_welcome.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+
+
+  <nav>
+    <a id="go-home" href="/">AppName</a>
+    <% if logged_in? %>
+      <div class="welcome-user">
+        <a href="/">Welcome home, <%= current_user.name %></a>
+        <a href="/logout">Logout</a>
+      </div>
+    <% else %>
+      <div class="nav-buttons">
+        <a id="sign-up" href="/signup">Sign Up</a>
+        <a id="login" href="/login">Login</a>
+      </div>
+    <% end %>
+  </nav>
+  <%= yield %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+</body>
+</html>

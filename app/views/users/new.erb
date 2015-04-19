@@ -1,0 +1,23 @@
+<% @user.errors.full_messages.each do |error| %>
+  <div class="form-error"<%= error %> </div>
+<% end %>
+
+<div class="form-background">
+  <div class="form-container">
+    <form class="signup" action="/users" method="post">
+      <h1>Signup Form</h1>
+      <div>
+        <input type="text" placeholder="name" name="name" value=<%= @user.name %>>
+      </div>
+      <div>
+        <input type="text" placeholder="email" name="email" value=<%= @user.email %>>
+      </div>
+      <div>
+        <input type="password" placeholder="password" name="password"/>
+      </div>
+      <div>
+        <input class="submit" type="submit" value="Sign Up!"/>
+      </div>
+    </form>
+  </div>
+</div>

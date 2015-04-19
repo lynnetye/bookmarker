@@ -1,0 +1,64 @@
+.background {
+  background-image: url("http://www.psdgraphics.com/file/colorful-triangles-background.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  /*height: 600px;*/
+}
+
+.site-info > h1 {
+  border: 5px solid white;
+  background-color: black;
+  color: white;
+  font-size: 40px;
+  margin: 300px auto;
+  padding: 50px;
+}
+
+section.demo {
+  color: white;
+  font-size: 26px;
+  margin: 20px auto;
+}
+
+section.demo > .steps {
+  display: flex;
+  background-color: black;
+  justify-content: space-between;
+}
+section.demo > .steps > div {
+  padding: 50px;
+}
+
+.fa-caret-right {
+  padding-left: 20px;
+}
+
+section.demo > .steps > div {
+  margin: 0px 50px;
+}
+
+section.demo > .steps > div:nth-child(2):hover {
+  background-color: #2A7F7F;
+}
+
+section.demo > .steps > div:nth-child(3):hover {
+  background-color: #6A9F5F;
+}
+
+section.demo > .steps > div:nth-child(4):hover {
+  background-color: #FF6130;
+}
+
+section.demo > .steps > div:nth-child(5):hover {
+  background-color: #E83317;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-around;
+  padding: 7px;
+}
