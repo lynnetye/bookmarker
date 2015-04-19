@@ -19,3 +19,7 @@ post '/users' do
     erb :"users/new"
   end
 end
+
+get '/user/:id/bookmarks' do
+  erb :"_user-homepage"
+end

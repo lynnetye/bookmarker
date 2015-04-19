@@ -1,0 +1,23 @@
+<div class="border">
+</div>
+<% @owner_id = current_user.id %>
+<section class="container">
+  <div class="tabs">
+    <a href="/user/<%= "#{@owner_id}" %>/bookmarks">Manage Your Bookmarks</a>
+    <a href="/bookmarks">Find Other Bookmarks</a>
+  </div>
+  <div class="content">
+
+    <div>
+      <% current_user.bookmarks.each do |bookmark| %>
+        <p><a href="<%= bookmark.url %>" target="_blank"><%= bookmark.name %></a></p>
+      <% end %>
+    </div>
+
+    <!-- open all bookmarks (if user has more than 1 bookmark) -->
+    <% if current_user.bookmarks.length > 1 %>
+      <p id="open-all"><a href="/openall">Open All Bookmarks</a></p>
+    <% end %>
+  </div>
+
+</section>

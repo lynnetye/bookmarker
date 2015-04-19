@@ -1,6 +1,9 @@
 require 'bcrypt'
 
 class User < ActiveRecord::Base
+
+  has_many :bookmarks
+
   #TODO : Use bcrypt to store hashed passwords and authenticate users
   validates :name, presence: true
   validates :email, presence: true
