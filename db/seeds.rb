@@ -10,9 +10,21 @@ require 'faker'
 #   User.create :name => Faker::Name.name, :email => Faker::Internet.email, :password => 'password'
 # end
 
-me = User.create!({
+master = User.create!({
   name: "Master User",
   email: "master@user.com",
+  password: "asdfhjkl"
+})
+
+creator = User.create!({
+  name: "Creator User",
+  email: "creator@user.com",
+  password: "asdfhjkl"
+})
+
+admirer = User.create!({
+  name: "Admirer User",
+  email: "admirer@user.com",
   password: "asdfhjkl"
 })
 
@@ -26,5 +38,5 @@ twitter = Bookmark.create({
   url: "https://www.twitter.com"
 })
 
-me.bookmarks << facebook
-me.bookmarks << twitter
+master.bookmarks << facebook
+master.bookmarks << twitter

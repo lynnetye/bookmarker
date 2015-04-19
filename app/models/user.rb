@@ -2,20 +2,18 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
+  has_many :admiring_friends, foreign_key: "creator_id", class_name: "Friendship"
+  has_many :admirers, through: :admiring_friends
+
+  has_many :idols, foreign_key: "admirer_id", class_name: "Friendship"
+  has_many :creators, through: :idols
+
   has_many :bookmarks
 
-  #TODO : Use bcrypt to store hashed passwords and authenticate users
+  # validations
   validates :name, presence: true
   validates :email, presence: true
   validates :password, presence: true
-
-  # def password
-  # end
-
-  # def password=(password)
-  #   password
-  #   self.password_hash =
-  # end
 
   include BCrypt
 
