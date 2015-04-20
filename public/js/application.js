@@ -1,9 +1,19 @@
 $(document).ready(function() {
 
-  $(".tabs > a").on("click", function(event){
+  // open full-menu and collapse to hidden-menu
+  $(".hidden-menu").on("click", function(){
+    // debugger
+    var displayTabs = $(this).siblings(".tabs");
+    displayTabs.toggle("hide");
+  })
+
+  // open individual bookmarks
+  $(".tabs a").on("click", function(event){
     event.preventDefault();
+
     var keyTag = $(this).attr("id")
-    var matchingSection = $(this).closest("section.container").find("div.bookmarks-content." + keyTag)
+    var pageContainer = $(this).closest(".page-container");
+    var matchingSection = pageContainer.find("div.bookmarks-content." + keyTag)
     matchingSection.removeClass("hide")
     matchingSection.siblings().addClass("hide")
   })
@@ -11,4 +21,3 @@ $(document).ready(function() {
 
 });
 
-cp ~/Downloads/gplaypattern/. ~/projects/mini-apps/bookmarker/

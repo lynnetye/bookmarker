@@ -6,14 +6,14 @@
   <link rel="stylesheet" href="/css/_welcome.css">
   <link rel="stylesheet" href="/css/_user-homepage.css">
   <link rel="stylesheet" href="/css/_bookmarks-content.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
 
-
   <nav>
-    <a id="go-home" href="/">AppName</a>
+    <a href="/">Bookmarker</a>
     <% if logged_in? %>
       <div class="welcome-user">
         <a href="/">Welcome home, <%= current_user.name %></a>
@@ -27,7 +27,6 @@
     <% end %>
   </nav>
   <%= yield %>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 </body>
 </html>

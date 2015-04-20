@@ -3,13 +3,30 @@
 
 <% @id = current_user.id %>
 
-<section class="container">
-  <div class="tabs">
-    <a id="your-bookmarks" href="/user/<%= "#{@id}" %>/bookmarks">Your Bookmarks</a>
-    <a id="your-creators" href="/user/<%= "#{@id}" %>/creators">People You Follow</a>
-    <a id="your-admirers" href="/user/<%= "#{@id}" %>/admirers">People Who Follow You</a>
+<div class="page-container">
+  <div class="full-menu">
+    <div class="tabs">
+      <div>
+        <a id="your-bookmarks" href="/user/<%= "#{@id}" %>/bookmarks">MANAGE BOOKMARKS</a>
+      </div>
+      <div>
+        <a id="your-creators" href="/user/<%= "#{@id}" %>/creators">WHO YOU FOLLOW</a>
+      </div>
+      <div>
+        <a id="your-admirers" href="/user/<%= "#{@id}" %>/admirers">WHOSE FOLLOWING YOU</a>
+      </div>
+    </div>
+
+    <div class="hidden-menu">
+      <i class="fa fa-bars"></i>
+      <h1 class="rotate">M</h1>
+      <h1 class="rotate">E</h1>
+      <h1 class="rotate">N</h1>
+      <h1 class="rotate">U</h1>
+    </div>
   </div>
-  <div class="content">
+
+  <section class="content">
     <%= erb :"_bookmarks-content" %>
-  </div>
-</section>
+  </section>
+</div>
