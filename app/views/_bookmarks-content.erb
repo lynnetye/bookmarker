@@ -1,0 +1,19 @@
+<section>
+  <div class="bookmarks-content your-bookmarks hide">
+    <% current_user.bookmarks.each do |bookmark| %>
+      <p><a href="<%= bookmark.url %>" target="_blank"><%= bookmark.name %></a></p>
+    <% end %>
+  </div>
+
+  <div class="bookmarks-content your-creators hide">
+    <% current_user.creators.each do |creator| %>
+      <p><a href="<%= creator.name %>" target="_blank"><%= creator.name %></a></p>
+    <% end %>
+  </div>
+
+  <div class="bookmarks-content your-admirers hide">
+    <% current_user.admirers.each do |admirer| %>
+      <p><a href="<%= admirer.name %>" target="_blank"><%= admirer.name %></a></p>
+    <% end %>
+  </div>
+</section>

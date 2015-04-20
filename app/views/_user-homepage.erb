@@ -1,23 +1,15 @@
 <div class="border">
 </div>
-<% @owner_id = current_user.id %>
+
+<% @id = current_user.id %>
+
 <section class="container">
   <div class="tabs">
-    <a href="/user/<%= "#{@owner_id}" %>/bookmarks">Manage Your Bookmarks</a>
-    <a href="/bookmarks">Find Other Bookmarks</a>
+    <a id="your-bookmarks" href="/user/<%= "#{@id}" %>/bookmarks">Your Bookmarks</a>
+    <a id="your-creators" href="/user/<%= "#{@id}" %>/creators">People You Follow</a>
+    <a id="your-admirers" href="/user/<%= "#{@id}" %>/admirers">People Who Follow You</a>
   </div>
   <div class="content">
-
-    <div>
-      <% current_user.bookmarks.each do |bookmark| %>
-        <p><a href="<%= bookmark.url %>" target="_blank"><%= bookmark.name %></a></p>
-      <% end %>
-    </div>
-
-    <!-- open all bookmarks (if user has more than 1 bookmark) -->
-    <% if current_user.bookmarks.length > 1 %>
-      <p id="open-all"><a href="/openall">Open All Bookmarks</a></p>
-    <% end %>
+    <%= erb :"_bookmarks-content" %>
   </div>
-
 </section>
