@@ -26,7 +26,10 @@ nav > #go-home, .nav-buttons, .welcome-user {
 
 /*for all forms*/
 .form-background {
-  height: 600px;
+  background-image: url("http://www.psdgraphics.com/file/colorful-triangles-background.jpg");
+  background-size: cover;
+  background-position: 0px -10px;
+  height: 1000px;
   background-color: red;
 }
 
@@ -38,7 +41,7 @@ nav > #go-home, .nav-buttons, .welcome-user {
 form {
   border: 4px solid black;
   background-color: white;
-  margin: 80px auto;
+  margin: 10% auto;
   padding: 10px;
   text-align: center;
 }
@@ -46,6 +49,11 @@ form {
 form > h1 {
   font-size: 24px;
   margin: 10px;
+}
+
+form > h2 {
+  color: red;
+  margin: 20px 0px 5px 0px;
 }
 
 form > div > input {

@@ -1,15 +1,16 @@
-
-<% if @login_failed %>
-  <h2>Login Failed</h2>
-<% end %>
-
 <div class="form-background">
   <div class="form-container">
 
     <form action="/login" method="post">
       <h1>Login Form</h1>
+
+      <!-- alert user of login failure -->
+      <% if @login_failed %>
+        <h2>Invalid Email or Password</h2>
+      <% end %>
+
       <div>
-        <input type="text" placeholder="email" name="email"%>
+        <input type="text" placeholder="email" name="email" value="<%= @user.name %>">
       </div>
       <div>
         <input type="password" placeholder="password" name="password"%>

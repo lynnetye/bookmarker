@@ -5,7 +5,7 @@ end
 #----------- SESSIONS -----------
 
 get '/login' do
-  # render sign-in page
+  @user = User.new
   erb :"users/login"
 end
 

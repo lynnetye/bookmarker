@@ -1,6 +1,7 @@
 .background {
   background-image: url("http://www.psdgraphics.com/file/colorful-triangles-background.jpg");
   background-size: cover;
+  background-position: 0px -10px;
   display: flex;
   justify-content: center;
 }
@@ -29,6 +30,7 @@ section.demo > .steps {
 section.demo > .steps {
   background-color: black;
 }
+
 section.demo > .steps > div {
   padding: 50px 0px;
   text-align: center;

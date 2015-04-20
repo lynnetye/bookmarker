@@ -1,4 +1,33 @@
+.content {
+  display: flex;
+  padding: 0px 10%;
+  width: 75%;
+}
+
+#x {
+  color: white;
+  font-size: 30px;
+  padding: 5px;
+  position: absolute;
+}
+
+.bookmarks-content {
+  background-color: black;
+  color: white;
+  height: 542px;
+  width: 100%;
+}
+
+.bookmarks-content a {
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.bookmarks-content p {
+  margin: 100px;
+}
+
 .hide {
   display: none;
-  /*font-size: 50px;*/
 }

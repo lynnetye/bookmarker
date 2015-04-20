@@ -1,6 +1,7 @@
 .page-container {
   display: flex;
-  }
+  margin: 50px auto;
+}
 
 .border {
   background-image: url("http://www.psdgraphics.com/file/colorful-triangles-background.jpg");
@@ -11,7 +12,8 @@
 
 .full-menu {
   display: flex;
-  margin: 50px auto;
+  margin: 0px auto;
+  padding: 0px 5%;
 }
 
 .hidden-menu {
@@ -25,6 +27,7 @@
   justify-content: center;
   height: 542px;
   width: 60px;
+  min-width: 60px;
   text-align: center;
   text-shadow: 1px 1px 2px #263248;
   transition: background-color 1s, text-shadow 1s;
@@ -49,6 +52,7 @@
   display: flex;
   flex-direction: column;
   width: 200px;
+  min-width: 200px;
   text-align: right;
 }
 
@@ -67,13 +71,3 @@
   background-color: #7F7975;
   text-shadow: 1px 1px 2px #263248;
 }
-
-/*DIVIDER*/
-
-section.container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
