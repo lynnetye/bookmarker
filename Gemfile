@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.0.0'
+ruby '1.9.3'
 
 # PostgreSQL driver
 gem 'pg'
@@ -25,7 +25,7 @@ group :test do
 end
 
 group :test, :development do
-  gem 'rspec'
+  # gem 'rspec'
   gem 'factory_girl'
   gem 'faker'
 end
