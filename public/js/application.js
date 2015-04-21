@@ -44,6 +44,31 @@ $(document).ready(function() {
     })
   })
 
+    /* Executed when the APIs finish loading */
+    function render() {
+
+     // Additional params including the callback, the rest of the params will
+     // come from the page-level configuration.
+     var additionalParams = {
+       'callback': signinCallback
+     };
+
+     // TEST
+     $("body").on("click", function(){
+        alert("yay");
+     });
+
+     // Attach a click listener to a button to trigger the flow.
+     // var signinButton = document.getElementById('signinButton');
+     // signinButton.addEventListener('click', function() {
+      $("#signinButton").on("click", function(event){
+        event.preventDefault();
+        $(".nav-buttons > a").css({"color": "red"});
+        debugger
+       // gapi.auth.signIn(additionalParams); // Will use page level configuration
+     });
+   }
+
   function signinCallback(authResult) {
     if (authResult['status']['signed_in']) {
       // Update the app to reflect a signed in user

@@ -7,10 +7,14 @@
   <link rel="stylesheet" href="/css/_user-homepage.css">
   <link rel="stylesheet" href="/css/_bookmarks-content.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <!-- google plus signin code -->
   <script src="https://apis.google.com/js/client:platform.js" async defer></script>
   <meta name="google-signin-clientid" content=<%= ENV["CLIENT_ID"] %> />
   <meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
   <meta name="google-signin-requestvisibleactions" content="http://schema.org/AddAction" />
+  <!-- end of google plus signin code -->
+
   <meta name="google-signin-cookiepolicy" content="single_host_origin" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -37,27 +41,6 @@
   </nav>
   <%= yield %>
   <script src="/js/application.js"></script>
-    <script src="https://apis.google.com/js/client:platform.js?onload=render" async defer>
-    /* Executed when the APIs finish loading */
-    function render() {
-
-     // Additional params including the callback, the rest of the params will
-     // come from the page-level configuration.
-     var additionalParams = {
-       'callback': signinCallback
-     };
-
-     // Attach a click listener to a button to trigger the flow.
-     // var signinButton = document.getElementById('signinButton');
-     // signinButton.addEventListener('click', function() {
-      $("#signinButton").on("click", function(event){
-        event.preventDefault();
-        $(".nav-buttons > a").css({"color": "red"});
-      debugger
-      // })
-       // gapi.auth.signIn(additionalParams); // Will use page level configuration
-     });
-   }
-</script>
+    <script src="https://apis.google.com/js/client:platform.js?onload=render" async defer></script>
 </body>
 </html>
