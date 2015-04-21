@@ -48,10 +48,14 @@
      };
 
      // Attach a click listener to a button to trigger the flow.
-     var signinButton = document.getElementById('signinButton');
-     signinButton.addEventListener('click', function() {
+     // var signinButton = document.getElementById('signinButton');
+     // signinButton.addEventListener('click', function() {
+      $("#signinButton").on("click", function(event){
+        event.preventDefault();
+        $(".nav-buttons > a").css({"color": "red"});
       debugger
-       gapi.auth.signIn(additionalParams); // Will use page level configuration
+      // })
+       // gapi.auth.signIn(additionalParams); // Will use page level configuration
      });
    }
 </script>
