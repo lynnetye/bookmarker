@@ -26,9 +26,11 @@
 
      // Attach a click listener to a button to trigger the flow.
      var signinButton = document.getElementById('signinButton');
-     signinButton.addEventListener('click', function() {
-       gapi.auth.signIn(additionalParams); // Will use page level configuration
+     signinButton.on('click', function() {
+        alert("clicked!");
+        gapi.auth.signIn(additionalParams); // Will use page level configuration
      });
+
    }
 </script>
 </head>
