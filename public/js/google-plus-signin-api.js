@@ -6,7 +6,7 @@ function logout()
 function login()
 {
   var myParams = {
-    'clientid' : ENV["CLIENT_ID"],
+    'clientid' : "704604537449-4b85mpoilelcccu7e1mf4feaho6jrbk7.apps.googleusercontent.com",
     'cookiepolicy' : 'single_host_origin',
     'callback' : 'loginCallback',
     'approvalprompt':'force',
@@ -51,6 +51,6 @@ function loginCallback(result)
 }
 function onLoadCallback()
 {
-    gapi.client.setApiKey(ENV["SECRET_KEY"]);
+    gapi.client.setApiKey("AIzaSyCGKXe6ORybY5kDr_hSSQBWhuY8m3KDNl8");
     gapi.client.load('plus', 'v1',function(){});
 }
