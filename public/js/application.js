@@ -26,5 +26,24 @@ $(document).ready(function() {
     })
   })
 
+  // submit forms to create new objects
+  $("form.add-bookmark").on("submit", function(event){
+    event.preventDefault();
+
+    var request = $.ajax({
+      url: $(this).attr("action"),
+      type: "POST",
+      data: $("form").serialize(),
+      dataType: "json"
+    })
+
+    request.done(function(response){
+      var name = response.name
+      var url = response.url
+
+      $()
+    })
+  })
+
 });
 

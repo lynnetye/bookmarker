@@ -31,3 +31,9 @@
 .hide {
   display: none;
 }
+
+/*forms*/
+
+form > input {
+  font-size: 24px;
+}
