@@ -8,14 +8,6 @@
   <link rel="stylesheet" href="/css/_bookmarks-content.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-  <!-- google plus signin code -->
-  <script src="https://apis.google.com/js/client:platform.js" async defer></script>
-  <meta name="google-signin-clientid" content=<%= ENV["CLIENT_ID"] %> />
-  <meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
-  <meta name="google-signin-requestvisibleactions" content="http://schema.org/AddAction" />
-  <!-- end of google plus signin code -->
-
-  <meta name="google-signin-cookiepolicy" content="single_host_origin" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
@@ -29,18 +21,32 @@
         <a href="/logout">Logout</a>
       </div>
     <% else %>
-      <div class="nav-buttons">
+      <!-- <div class="nav-buttons">
         <a id="sign-up" href="/signup">Sign Up</a>
         <a id="login" href="/login">Login</a>
+      </div> -->
 
-        <!-- google sign in button -->
-        <a href="/" id="signinButton">Sign in with Google</a>
-        <a href="#">TEST BUTTON</a>
-      </div>
+      <!-- google plus signin code -->
+      <input type="button"  value="Login" onclick="login()" />
+      <input type="button"  value="Logout" onclick="logout()" />
+      <div id="profile"></div>
+      <!-- end of google plus signin code -->
+
+
     <% end %>
   </nav>
   <%= yield %>
   <script src="/js/application.js"></script>
-    <script src="https://apis.google.com/js/client:platform.js?onload=render" async defer></script>
+
+  <!-- google plus sign in -->
+  <script src="/js/google-plus-signin-api.js"></script>
+  <script type="text/javascript">
+      (function() {
+       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+       po.src = 'https://apis.google.com/js/client.js?onload=onLoadCallback';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+     })();
+  </script>
+  <!-- google plus sign in -->
 </body>
 </html>
