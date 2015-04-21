@@ -14,7 +14,6 @@
   <meta name="google-signin-cookiepolicy" content="single_host_origin" />
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
 </head>
 <body>
 
@@ -32,6 +31,7 @@
 
         <!-- google sign in button -->
         <button id="signinButton">Sign in with Google</button>
+        <button>TEST BUTTON</button>
       </div>
     <% end %>
   </nav>
@@ -50,6 +50,7 @@
      // Attach a click listener to a button to trigger the flow.
      var signinButton = document.getElementById('signinButton');
      signinButton.addEventListener('click', function() {
+      debugger
        gapi.auth.signIn(additionalParams); // Will use page level configuration
      });
    }
