@@ -26,7 +26,7 @@ $(document).ready(function() {
     })
   })
 
-  // submit forms to create new objects
+  // submit forms to create new bookmarks
   $("form.add-bookmark").on("submit", function(event){
     event.preventDefault();
 
@@ -40,8 +40,7 @@ $(document).ready(function() {
     request.done(function(response){
       var name = response.name
       var url = response.url
-
-      $()
+      $(".your-bookmarks").append("<p><a href=" + url + ">" + name + "</a></p>");
     })
   })
 
