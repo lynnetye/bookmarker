@@ -25,6 +25,7 @@ function loginCallback(result)
         });
         request.execute(function (resp)
         {
+            debugger
             var email = '';
             if(resp['emails'])
             {
