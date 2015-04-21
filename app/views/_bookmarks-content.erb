@@ -1,13 +1,17 @@
 <div class="bookmarks-content your-bookmarks hide">
 
-  <form class="add-bookmark" action="/bookmarks" method="post">
+  <form id="create-bookmark" class="add-bookmark" action="/bookmarks" method="post">
     <input type="text" placeholder="Name" name="name">
     <input type="text" placeholder="URL" name="url">
-    <input type="submit" value="Add to Bookmarks">
+    <input type="submit" value="Add to Bookmarks" id="submit"/>
   </form>
 
   <% current_user.bookmarks.each do |bookmark| %>
-    <p><a href="<%= bookmark.url %>" target="_blank"><%= bookmark.name %></a></p>
+    <div class="show-link-options">
+      <p><a id="bookmark-name" href="<%= bookmark.url %>" target="_blank"><%= bookmark.name %></a></p>
+      <p><a id="delete" href="/delete">Delete</a></p>
+      <p><a id="edit" href="/edit">Edit</a></p>
+    </div>
   <% end %>
 </div>
 
