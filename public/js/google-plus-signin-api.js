@@ -15,20 +15,15 @@ function login()
   gapi.auth.signIn(myParams);
 }
 
-function loginCallback(result)
-{
-    if(result['status']['signed_in'])
-    {
-        var request = gapi.client.plus.people.get(
-        {
+function loginCallback(result) {
+            debugger
+    if(result['status']['signed_in']) {
+        var request = gapi.client.plus.people.get({
             'userId': 'me'
         });
-        request.execute(function (resp)
-        {
-            debugger
+        request.execute(function (resp) {
             var email = '';
-            if(resp['emails'])
-            {
+            if(resp['emails']) {
                 for(i = 0; i < resp['emails'].length; i++)
                 {
                     if(resp['emails'][i]['type'] == 'account')
