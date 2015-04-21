@@ -8,7 +8,7 @@ function login()
   var myParams = {
     'clientid' : "704604537449-4b85mpoilelcccu7e1mf4feaho6jrbk7.apps.googleusercontent.com",
     'cookiepolicy' : 'single_host_origin',
-    // 'callback' : 'loginCallback',
+    'callback' : 'loginCallback',
     'approvalprompt':'force',
     'scope' : 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/plus.profile.emails.read'
   };
