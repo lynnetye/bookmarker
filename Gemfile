@@ -20,6 +20,8 @@ gem 'shotgun'
 
 gem 'dotenv'
 
+gem 'httparty'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

@@ -19,3 +19,12 @@ post '/users' do
     erb :"users/new"
   end
 end
+
+#----------- GITHUB -----------
+
+get '/github' do
+  api = Github::Client.new(ENV["GITHUB_KEY"], "lynne")
+  @org = api.get_org("sf-rock-doves-2015")
+
+  erb :index
+end
