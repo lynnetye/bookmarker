@@ -16,26 +16,25 @@ post '/bookmarks' do
   # {name: name, url: url}.to_json
 end
 
-get 'bookmarks/:id' do
-end
-
 get '/bookmarks/:id/edit' do
   @bookmark = Bookmark.where(id: params[:id]).first
-  erb :"bookmarks/_your-bookmarks"
+  erb :"_user-homepage"
 end
 
 put '/bookmarks/:id' do
   @bookmarks = users_bookmarks
-  @bookmark = Bookmark.where(id: params[:id]).first
-  puts
-  p @bookmark
+  @bookmark = @bookmarks.where(id: params[:id]).first
   @bookmark.update(
     name: params[:name],
     url: params[:url]
   )
-  p @bookmark
-  redirect '/'
+  redirect '/bookmarks'
 end
 
 delete '/bookmarks/:id' do
+  @bookmarks = users_bookmarks
+  @bookmark = @bookmarks.where(id: params[:id]).first
+
+  @bookmark.destroy
+  redirect '/bookmarks'
 end

@@ -1,36 +1,50 @@
 <div class="bookmarks-content your-bookmarks">
   <% @bookmarks = current_user.bookmarks.all %>
 
+  <!-- form to create a new bookmark at any time -->
+  <form id="create-bookmark" class="add-bookmark" action="/bookmarks" method="post">
+    <input type="text" placeholder="Name" name="name">
+    <input type="text" placeholder="URL" name="url">
+    <input type="submit" value="Add to Bookmarks" id="submit"/>
+  </form>
+
+  <% if @bookmarks.length == 0 %>
+    <!-- invite new users to create their first bookmark -->
+    <p>You have no bookmarks. Make your first!</p>
+  <% else %>
+
   <% @bookmarks.each_with_index do |bookmark, index| %>
 
-    <% if @bookmark == bookmark %>
-<!--  -->
+    <% if @bookmark && @bookmark == bookmark %>
 
-      <!-- update button -->
+      <!-- update bookmark -->
       <form action="/bookmarks/<%= bookmark.id %>" method="post">
         <input type="hidden" name="_method" value="put">
         <div class="edit-bookmark">
-          <input class="content" type="text" name="content" value="<%= @bookmark.name %>"/>
-          <input class="content" type="text" name="content" value="<%= @bookmark.url %>"/>
+          <input type="text" name="name" value="<%= @bookmark.name %>"/>
+          <input type="text" name="url" value="<%= @bookmark.url %>"/>
           <input class="update-button" type="submit" value="Update"/>
         </div>
       </form>
 
-      <!-- delete button -->
-      <form action="/bookmarks/<%= index %>" method="post">
+      <!-- delete bookmark -->
+      <form action="/bookmarks/<%= bookmark.id %>" method="post">
         <div class="edit-bookmark">
           <input type="hidden" name="_method" value="delete">
           <input class="delete-button" type="submit" value="Delete"/>
         </div>
       </form>
 
-
     <% else %>
+
       <div class="show-link-options">
         <p><a id="bookmark-name" href="<%= bookmark.url %>" target="_blank">
-          <%= bookmark.name %></a></p>
+          <%= bookmark.url %></a></p>
         <p><a id="edit" href="/bookmarks/<%= bookmark.id %>/edit">Edit</a></p>
       </div>
+
+    <% end %>
+
     <% end %>
   <% end %>
 </div>
