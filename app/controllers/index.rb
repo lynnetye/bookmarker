@@ -13,7 +13,7 @@ post '/login' do
   @user = User.where(email: params[:email]).first
   if @user && @user.password == params[:password]
     login_as_user(@user)
-    redirect '/'
+    redirect '/bookmarks'
   else
     @login_failed = true
     erb :"users/login"

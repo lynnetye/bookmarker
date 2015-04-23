@@ -24,19 +24,20 @@
       <div class="nav-buttons">
         <a id="sign-up" href="/signup">Sign Up</a>
         <a id="login" href="/login">Login</a>
+
+        <!-- google plus signin code -->
+        <a style="cursor:pointer" onclick="login()"/>Login with Google Plus</a>
+        <a style="cursor:pointer" onclick="logout()"/>Logout</a>
+        <div id="profile"></div>
+        <!-- end of google plus signin code -->
+
       </div>
-
-      <!-- google plus signin code -->
-      <input type="button"  value="Login" onclick="login()" />
-      <input type="button"  value="Logout" onclick="logout()" />
-      <div id="profile"></div>
-      <!-- end of google plus signin code -->
-
 
     <% end %>
   </nav>
   <%= yield %>
   <script src="/js/application.js"></script>
+  <script src="/js/bookmarks.js"></script>
 
   <!-- google plus sign in -->
   <script src="/js/google-plus-signin-api.js"></script>

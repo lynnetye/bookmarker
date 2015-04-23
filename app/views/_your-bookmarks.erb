@@ -1,0 +1,19 @@
+<div class="bookmarks-content your-bookmarks">
+  <% @bookmarks = current_user.bookmarks %>
+
+  <form id="create-bookmark" class="add-bookmark" action="/bookmarks" method="post">
+    <input type="text" placeholder="Name" name="name">
+    <input type="text" placeholder="URL" name="url">
+    <input type="submit" value="Add to Bookmarks" id="submit"/>
+  </form>
+
+  <div class="each-bookmark">
+    <% current_user.bookmarks.each do |bookmark| %>
+      <div class="show-link-options">
+        <p><a id="bookmark-name" href="<%= bookmark.url %>" target="_blank"><%= bookmark.name %></a></p>
+        <p><a id="edit" href="/bookmarks/<%= bookmark.id %>/edit">Edit</a></p>
+        <p><a id="delete" href="/bookmarks/<%= bookmark.id %>">Delete</a></p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -7,14 +7,14 @@
   <div class="full-menu">
     <div class="tabs">
       <div>
-        <a id="your-bookmarks" href="/user/<%= "#{@id}" %>/bookmarks">MANAGE BOOKMARKS</a>
+        <a id="your-bookmarks" href="/bookmarks">MANAGE BOOKMARKS</a>
+      </div>
+   <!--    <div>
+        <a id="your-creators" href="/bookmarks/creators">WHO YOU FOLLOW</a>
       </div>
       <div>
-        <a id="your-creators" href="/user/<%= "#{@id}" %>/creators">WHO YOU FOLLOW</a>
-      </div>
-      <div>
-        <a id="your-admirers" href="/user/<%= "#{@id}" %>/admirers">WHOSE FOLLOWING YOU</a>
-      </div>
+        <a id="your-admirers" href="/bookmarks/admirers">WHOSE FOLLOWING YOU</a>
+      </div> -->
     </div>
 
     <div class="hidden-menu">
@@ -28,6 +28,6 @@
 
   <section class="content hide">
     <a id="x" href="#"><i class="fa fa-times"></i></a>
-    <%= erb :"_bookmarks-content" %>
+    <%= erb :"bookmarks/_bookmarks-content" %>
   </section>
 </div>
