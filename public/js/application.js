@@ -22,9 +22,9 @@ $(document).ready(function() {
     // $("#x").removeClass("hide")
 
     // closing the contents box
-    $("#x").on("click", function(){
-      sectionContent.addClass("hide")
-    })
+    // $("#x").on("click", function(){
+    //   sectionContent.addClass("hide")
+    // })
   })
 
 });

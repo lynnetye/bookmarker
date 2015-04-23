@@ -1,4 +1,11 @@
 <div class="bookmarks-content">
-
-  <%= erb :"bookmarks/_your-bookmarks", layout: false %>
+  <% if @section == "your-bookmarks" %>
+    <%= erb :"bookmarks/_your-bookmarks", layout: false %>
+  <% elsif @section == "your-creators" %>
+    <%= erb :"bookmarks/_your-creators", layout: false %>
+  <% elsif @section == "your-admirers" %>
+    <%= erb :"bookmarks/_your-admirers", layout: false %>
+  <% else %>
+    <p>nothing here</p>
+  <% end %>
 </div>

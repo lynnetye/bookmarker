@@ -1,4 +1,7 @@
+#----------- A SINGLE USER'S BOOKMARKS -----------
+
 get '/bookmarks' do
+  @section = "your-bookmarks"
   erb :"_user-homepage"
 end
 

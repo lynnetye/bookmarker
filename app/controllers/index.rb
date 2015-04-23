@@ -1,3 +1,5 @@
+#----------- LANDING PAGE -----------
+
 get '/' do
   erb :index
 end
