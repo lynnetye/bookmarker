@@ -1,7 +1,9 @@
 #----------- LANDING PAGE -----------
 
 get '/' do
-  @bookmarks = users_bookmarks
+  if session[:user_id]
+    @bookmarks = users_bookmarks
+  end
   erb :index
 end
 
