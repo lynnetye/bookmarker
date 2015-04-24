@@ -18,12 +18,10 @@ $(document).ready(function () {
     request.done(function (response) {
       var bookmarkID = response.id,
         bookmarkToDelete = $(".bookmark[data-bookmark-id=" + bookmarkID + "]");
-
         bookmarkToDelete.fadeOut();
     });
 
   });
-
 
   // when edit action is clicked, display input
   $editBookmarkActions.on('click', function () {

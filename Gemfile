@@ -20,7 +20,7 @@ gem 'shotgun'
 
 gem 'dotenv'
 
-gem 'httparty'
+# gem 'httparty'
 
 group :test do
   gem 'shoulda-matchers'
