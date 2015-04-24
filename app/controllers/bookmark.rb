@@ -2,7 +2,7 @@
 
 get '/bookmarks' do
   @bookmarks = current_user.bookmarks.all
-  erb :"user-homepage"
+  erb :"menu-options/my-bookmarks"
 end
 
 put '/bookmarks/:id' do
@@ -22,4 +22,9 @@ delete '/bookmarks/:id' do
   @bookmark.delete
   content_type :json
   { id: params[:id] }.to_json
+end
+
+get '/bookmarks/new' do
+  @bookmarks = current_user.bookmarks.all
+  erb :"menu-options/add-new-bookmark"
 end

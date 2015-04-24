@@ -1,0 +1,13 @@
+/*forms*/
+.bookmarks-content > #create-bookmark {
+  margin: 60px auto;
+  width: 60%;
+}
+
+.bookmarks-content > #create-bookmark > input {
+  font-size: 24px;
+}
+
+#create-bookmark > input[type=submit] {
+  font-size: 24px;
+}

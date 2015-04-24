@@ -10,7 +10,9 @@
 }
 
 .bookmarks-content {
-  width: 100%;
+  display: inline-block;
+  position: absolute;
+  margin: 50px auto;
 }
 
 .bookmarks-content a {
@@ -24,30 +26,4 @@
 
 .hide {
   display: none;
-}
-
-
-/*forms*/
-/*.bookmarks-content > #create-bookmark {
-  margin: 60px auto;
-  width: 60%;
-}
-
-.bookmarks-content > #create-bookmark > input {
-  font-size: 24px;
-}
-
-#create-bookmark > input[type=submit] {
-  font-size: 24px;
-}
-*/
-
-/*bookmark link options for delete and edit*/
-.show-link-options > p {
-  /*display: inline-block;*/
-}
-
-.each-bookmark {
-  /*display: flex;*/
-  /*flex-direction: column;*/
 }
