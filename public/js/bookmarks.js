@@ -1,8 +1,29 @@
 $(document).ready(function () {
   var $editBookmarkActions = $('.bookmark-action-edit'),
+      $deleteBookmarkActions = $('.bookmark-action-delete'),
       $bookmarkNameAndUrlInputs = $('.bookmark-name-input, .bookmark-url-input'),
       originalBookmarkNames = {};
       originalBookmarkUrls = {};
+
+  // when delete action is clicked, delete bookmark
+  $deleteBookmarkActions.on('click', function () {
+    var $bookmarkDeleteLink = $(this),
+        $parentBookmark = $bookmarkDeleteLink.closest('.bookmark'),
+        bookmarkID = $bookmarkDeleteLink.closest('[data-bookmark-id]').attr('data-bookmark-id'),
+        request = $.ajax({
+          url: '/bookmarks/' + bookmarkID,
+          type: 'DELETE'
+        });
+
+    request.done(function (response) {
+      var bookmarkID = response.id,
+        bookmarkToDelete = $(".bookmark[data-bookmark-id=" + bookmarkID + "]");
+
+        bookmarkToDelete.fadeOut();
+    });
+
+  });
+
 
   // when edit action is clicked, display input
   $editBookmarkActions.on('click', function () {

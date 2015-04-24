@@ -7,8 +7,6 @@ end
 
 put '/bookmarks/:id' do
   bookmarks = users_bookmarks
-  puts "*" * 60
-  puts params
   @bookmark = bookmarks.where(id: params[:id]).first
   @bookmark.update(
     name: params[:name],
@@ -19,10 +17,9 @@ put '/bookmarks/:id' do
 end
 
 delete '/bookmarks/:id' do
-  @bookmarks = users_bookmarks
-  @bookmark = @bookmarks.where(id: params[:id]).first
-
-  @bookmark.destroy
-  # TODO: ajaxify
-  redirect '/bookmarks'
+  bookmarks = users_bookmarks
+  @bookmark = bookmarks.where(id: params[:id]).first
+  @bookmark.delete
+  content_type :json
+  { id: params[:id] }.to_json
 end

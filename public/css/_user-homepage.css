@@ -16,36 +16,6 @@
   padding: 0px 5%;
 }
 
-.hidden-menu {
-  align-items: center;
-  background-color: #7F7975;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 542px;
-  width: 60px;
-  min-width: 60px;
-  text-align: center;
-  text-shadow: 1px 1px 2px #263248;
-  transition: background-color 1s, text-shadow 1s;
-}
-
-.hidden-menu> .rotate {
-  margin: 5px 0px;
-}
-
-.hidden-menu> i {
-  margin: 20px 0px;
-}
-
-.hidden-menu:hover {
-  background-color: black;
-  text-shadow: 1px 1px 2px #7F7975;
-}
-
 .full-menu > .tabs {
   background-color: black;
   color: white;
