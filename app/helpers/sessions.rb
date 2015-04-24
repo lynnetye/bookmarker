@@ -1,5 +1,9 @@
 helpers do
 
+  def current_user
+    @current_user ||= User.where(id: session[:user_id]).first if session[:user_id]
+  end
+
   def current_user_id
     session[:user_id]
   end
@@ -14,14 +18,6 @@ helpers do
 
   def logout!
     session[:user_id] = nil
-  end
-
-  def current_user
-    @current_user ||= User.where(id: session[:user_id]).first if session[:user_id]
-  end
-
-  def users_bookmarks
-    current_user.bookmarks.all
   end
 
 end

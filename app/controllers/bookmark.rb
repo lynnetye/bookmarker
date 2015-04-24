@@ -1,37 +1,19 @@
 #----------- A SINGLE USER'S BOOKMARKS -----------
 
 get '/bookmarks' do
-  @section = "your-bookmarks"
-  erb :"_user-homepage"
-end
-
-post '/bookmarks' do
-  name = params[:name]
-  url = params[:url]
-  @bookmark = Bookmark.create!({
-    name: name,
-    url: url
-  })
-  current_user.bookmarks << @bookmark
-  current_user.save!
-  redirect '/bookmarks'
-  # content_type :json
-  # {name: name, url: url}.to_json
-end
-
-get '/bookmarks/:id/edit' do
-  @bookmark = Bookmark.where(id: params[:id]).first
-  erb :"_user-homepage"
+  @bookmarks = current_user.bookmarks.all
+  erb :"user-homepage"
 end
 
 put '/bookmarks/:id' do
-  @bookmarks = users_bookmarks
-  @bookmark = @bookmarks.where(id: params[:id]).first
+  bookmarks = users_bookmarks
+  @bookmark = bookmarks.where(id: params[:id]).first
   @bookmark.update(
     name: params[:name],
-    url: params[:url]
+    # url: params[:url]
   )
-  redirect '/bookmarks'
+
+  { bookmark: @bookmark}.to_json
 end
 
 delete '/bookmarks/:id' do
@@ -39,5 +21,6 @@ delete '/bookmarks/:id' do
   @bookmark = @bookmarks.where(id: params[:id]).first
 
   @bookmark.destroy
+  # TODO: ajaxify
   redirect '/bookmarks'
 end

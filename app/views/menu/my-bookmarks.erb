@@ -1,0 +1,26 @@
+<div class="bookmarks-content your-bookmarks">
+
+  <!-- if a new user, invite to create first bookmark -->
+  <% if @bookmarks.length == 0 %>
+    <p>You have no bookmarks. Make your first!</p>
+
+  <!-- else, show all bookmarks -->
+  <% else %>
+
+    <% @bookmarks.each_with_index do |bookmark, index| %>
+
+      <div data-bookmark-id="<%=bookmark.id%>" class="bookmark">
+        <p>
+          <a class="bookmark-name-link" href="/bookmarks/<%= bookmark.id %>" target="_blank"><%= bookmark.name %></a>
+          <input class="bookmark-name-input" type="text" value="<%= bookmark.name %>">
+          <span class="bookmark-action-edit">Edit</span>
+          <span class="bookmark-action-delete">Delete</span>
+        </p>
+      </div>
+
+    <% end %>
+
+  <% end %>
+</div>
+
+<script src="/js/bookmarks.js"></script>
