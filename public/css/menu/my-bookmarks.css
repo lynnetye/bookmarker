@@ -1,0 +1,20 @@
+.bookmark-name-input {
+  display: none;
+}
+
+.bookmark-action-edit, .bookmark-name-link {
+  display: inline-block;
+}
+
+/*editing a given bookmark*/
+.editting .bookmark-name-input {
+  display: inline-block;
+}
+
+.editting .bookmark-name-link {
+  display: none;
+}
+
+.editting .bookmark-action-edit {
+  display: none;
+}

@@ -5,38 +5,33 @@ $(document).ready(function () {
 
   // when edit action is clicked, display input
   $editBookmarkActions.on('click', function () {
-    var $bookmarkNameInput = $(this).siblings('.bookmark-name-input'),
-        $bookmarkNameLink = $(this).siblings('.bookmark-name-link'),
-        $bookmarkEditLink = $(this),
+    var $parentBookmark = $(this).closest('.bookmark');
+        $bookmarkNameInput = $(this).siblings('.bookmark-name-input'),
         bookmarkID = $(this).closest('[data-bookmark-id]').attr('data-bookmark-id'),
-        bookmarkName = $(this).siblings(".bookmark-name-link").text();
+        bookmarkName = $(this).siblings('.bookmark-name-link').text(),
+        $bookmarkEditLink = $(this);
 
     originalBookmarkNames[bookmarkID] = bookmarkName;
-
-    $bookmarkNameInput.css({'display': 'inline-block'}).select();
-    $bookmarkNameLink.css({'display': 'none'});
-    $bookmarkEditLink.css({'display': 'none'});
+    $parentBookmark.addClass('editting');
+    $bookmarkNameInput.select();
   });
 
   // hide input when escape is pressed
   // hide and submit when enter is pressed
   $bookmarkNameInputs.on('keydown', function (event) {
-    var $bookmarkNameInput = $(this).siblings('.bookmark-name-input'),
+    var $parentBookmark = $(this).closest('.bookmark'),
         $bookmarkNameLink = $(this).siblings('.bookmark-name-link'),
-        $bookmarkEditLink = $(this).siblings('.bookmark-action-edit'),
         bookmarkID = $(this).closest('[data-bookmark-id]').attr('data-bookmark-id'),
         $this = $(this),
         request;
 
     if (event.keyCode === 27) {
       $this.val(originalBookmarkNames[bookmarkID]);
-      $this.css({'display': 'none'});
-      $bookmarkNameLink.css({'display': 'inline-block'});
-      $bookmarkEditLink.css({'display': 'inline-block'});
+      $parentBookmark.removeClass('editting');
     } else if (event.keyCode === 13) {
       request = $.ajax({
         url: '/bookmarks/' + bookmarkID,
-        type: "PUT",
+        type: 'PUT',
         data: { name: $(this).val() },
         dataType: 'json'
       });
@@ -45,9 +40,7 @@ $(document).ready(function () {
         var bookmark = response.bookmark;
 
         $bookmarkNameLink.text(bookmark.name);
-        $this.css({'display': 'none'});
-        $bookmarkNameLink.css({'display': 'inline-block'});
-        $bookmarkEditLink.css({'display': 'inline-block'});
+        $parentBookmark.removeClass('editting');
       });
     };
   });

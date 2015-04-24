@@ -1,6 +1,7 @@
 #----------- LANDING PAGE -----------
 
 get '/' do
+  @bookmarks = users_bookmarks
   erb :index
 end
 
