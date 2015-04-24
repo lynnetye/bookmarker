@@ -7,10 +7,12 @@ end
 
 put '/bookmarks/:id' do
   bookmarks = users_bookmarks
+  puts "*" * 60
+  puts params
   @bookmark = bookmarks.where(id: params[:id]).first
   @bookmark.update(
     name: params[:name],
-    # url: params[:url]
+    url: params[:url],
   )
 
   { bookmark: @bookmark}.to_json

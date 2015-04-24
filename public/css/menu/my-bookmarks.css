@@ -1,4 +1,5 @@
-.bookmark-name-input {
+/*editing a given bookmark*/
+.bookmark-name-input, .bookmark-url-input {
   display: none;
 }
 
@@ -6,15 +7,52 @@
   display: inline-block;
 }
 
-/*editing a given bookmark*/
-.editting .bookmark-name-input {
+/*adding the editting class to display forms*/
+.editing .bookmark-name-input,
+.editing .bookmark-url-input {
   display: inline-block;
 }
 
-.editting .bookmark-name-link {
+.editing .bookmark-name-link,
+.editing .bookmark-url-link {
   display: none;
 }
 
-.editting .bookmark-action-edit {
+.editing .bookmark-action-edit {
   display: none;
 }
+
+.bookmark a {
+  color: black;
+}
+
+.bookmark > p > a {
+  margin: 0px 10px;
+}
+
+a.bookmark-url-link,
+span.bookmark-action-edit,
+span.bookmark-action-delete {
+  display: none;
+}
+
+/*note*/ /*:not(.editing) === :not(.editing):hover === :hover:not(.editing)*/
+.your-bookmarks > .bookmark:hover:not(.editing) .bookmark-url-link,
+.your-bookmarks > .bookmark:hover .bookmark-action-edit,
+.your-bookmarks > .bookmark:hover .bookmark-action-delete {
+  display: inline-block;
+}
+
+
+/*a.bookmark-name-link:hover ~ .bookmark-url-link,
+a.bookmark-name-link:hover ~ .bookmark-action-edit,
+a.bookmark-name-link:hover ~ .bookmark-action-delete {
+  display: inline-block;
+}*/
+
+/*
+.bookmark-name-input
+.bookmark-url-link
+.bookmark-url-input
+.bookmark-edit-action
+.bookmark-delete-action*/

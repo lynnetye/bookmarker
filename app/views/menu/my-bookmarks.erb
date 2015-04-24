@@ -9,10 +9,12 @@
 
     <% @bookmarks.each_with_index do |bookmark, index| %>
 
-      <div data-bookmark-id="<%=bookmark.id%>" class="bookmark">
+      <div data-bookmark-id="<%= bookmark.id %>" data-bookmark-url="<%= bookmark.url %>" class="bookmark">
         <p>
           <a class="bookmark-name-link" href="/bookmarks/<%= bookmark.id %>" target="_blank"><%= bookmark.name %></a>
           <input class="bookmark-name-input" type="text" value="<%= bookmark.name %>">
+          <a class="bookmark-url-link" href="/bookmarks/<%= bookmark.id %>"><%= bookmark.url %></a>
+          <input class="bookmark-url-input" type="text" value="<%= bookmark.url %>">
           <span class="bookmark-action-edit">Edit</span>
           <span class="bookmark-action-delete">Delete</span>
         </p>
