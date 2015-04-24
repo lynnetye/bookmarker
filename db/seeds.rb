@@ -34,4 +34,6 @@ twitter = Bookmark.create({
 })
 
 master.bookmarks << facebook
+master.save!
 master.bookmarks << twitter
+master.save!
