@@ -9,18 +9,18 @@
   position: absolute;
 }
 
-.bookmarks-content {
+.page-content {
   display: inline-block;
   position: absolute;
   margin: 50px auto;
 }
 
-.bookmarks-content a {
+.page-content a {
   font-size: 22px;
   text-decoration: none;
 }
 
-.bookmarks-content p {
+.page-content p {
   margin: 20px 100px;
 }
 

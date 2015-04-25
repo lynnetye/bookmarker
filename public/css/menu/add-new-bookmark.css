@@ -1,10 +1,10 @@
 /*forms*/
-.bookmarks-content > #create-bookmark {
+.page-content > #create-bookmark {
   margin: 60px auto;
   width: 60%;
 }
 
-.bookmarks-content > #create-bookmark > input {
+.page-content > #create-bookmark > input {
   font-size: 24px;
 }
 

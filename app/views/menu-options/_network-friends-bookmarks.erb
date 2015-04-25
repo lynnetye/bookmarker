@@ -1,11 +1,11 @@
 <%= erb :"/menu-options/_menu" %>
 
-<div class="page-content my-bookmarks">
-  <h1>My Bookmarks</h1>
+<div class="page-content friends-bookmarks">
+  <h1><%= @other_user.name %>'s Bookmarks</h1>
 
-  <!-- if a new user, invite to create first bookmark -->
-  <% if !@viewing_other_bookmarks && @bookmarks.length == 0 %>
-    <p>You have no bookmarks. Make your first!</p>
+  <!-- if friend doesn't have bookmarks -->
+  <% if @viewing_other_bookmarks && @bookmarks.length == 0 %>
+    <p><%= @other_user.name %> doesn't have any bookmarks yet!</p>
 
   <!-- else, show all bookmarks -->
   <% else %>
@@ -22,6 +22,7 @@
           <span class="bookmark-action-delete">Delete</span>
         </p>
       </div>
+
     <% end %>
   <% end %>
 </div>

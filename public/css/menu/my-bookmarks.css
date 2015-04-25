@@ -37,22 +37,8 @@ span.bookmark-action-delete {
 }
 
 /*note*/ /*:not(.editing) === :not(.editing):hover === :hover:not(.editing)*/
-.your-bookmarks > .bookmark:hover:not(.editing) .bookmark-url-link,
-.your-bookmarks > .bookmark:hover .bookmark-action-edit,
-.your-bookmarks > .bookmark:hover .bookmark-action-delete {
+.my-bookmarks > .bookmark:hover:not(.editing) .bookmark-url-link,
+.my-bookmarks > .bookmark:hover .bookmark-action-edit,
+.my-bookmarks > .bookmark:hover .bookmark-action-delete {
   display: inline-block;
 }
-
-
-/*a.bookmark-name-link:hover ~ .bookmark-url-link,
-a.bookmark-name-link:hover ~ .bookmark-action-edit,
-a.bookmark-name-link:hover ~ .bookmark-action-delete {
-  display: inline-block;
-}*/
-
-/*
-.bookmark-name-input
-.bookmark-url-link
-.bookmark-url-input
-.bookmark-edit-action
-.bookmark-delete-action*/

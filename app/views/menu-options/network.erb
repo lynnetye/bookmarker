@@ -1,5 +1,12 @@
 <%= erb :"/menu-options/_menu" %>
 
-<div class="container">
+<div class="page-content network">
   <h1>Find Friends</h1>
+
+  <% first_twelve_users = User.all.first(12) %>
+  <% first_twelve_users.each do |user| %>
+    <p>
+      <a href="/network/<%= user.id%>"><%= user.name %></a>
+    </p>
+  <% end %>
 </div>

@@ -12,7 +12,7 @@ $(document).ready(function() {
 
     var keyTag = $(this).attr("id")
     var pageContainer = $(this).closest(".page-container");
-    var matchingSection = pageContainer.find("div.bookmarks-content." + keyTag)
+    var matchingSection = pageContainer.find("div.page-content." + keyTag)
     var sectionContent = pageContainer.find("section.content");
 
     // debugger

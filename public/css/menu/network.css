@@ -1,0 +1,9 @@
+.network {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.network > h1 {
+  font-size: 32px;
+  font-weight: bold;
+}
