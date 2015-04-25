@@ -1,5 +1,6 @@
 #----------- USER'S ACCOUT SETTINGS -----------
 
 get '/settings' do
-  erb :"_user-homepage"
+  @selected_menu_option = 'settings'
+  erb :"menu-options/settings"
 end

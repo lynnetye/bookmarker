@@ -15,13 +15,13 @@
   display: inline-block;
   max-width: 260px;
   min-width: 200px;
-  text-align: right;
+  text-align: center;
   width: 200px;
 }
 
 .tabs > a {
   color: white;
-  display: inline-block;
+  display: block;
   text-decoration: none;
   padding: 50px 20px;
   font-size: 26px;
@@ -31,4 +31,8 @@
 .tabs > a:hover {
   background-color: #7F7975;
   text-shadow: 1px 1px 2px #263248;
+}
+
+.tabs > a.selected {
+  background-color: #7F7975;
 }

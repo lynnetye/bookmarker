@@ -2,6 +2,7 @@
 
 get '/bookmarks' do
   @bookmarks = current_user.bookmarks.all
+  @selected_menu_option = 'my-bookmarks'
   erb :"menu-options/my-bookmarks"
 end
 
@@ -26,5 +27,6 @@ end
 
 get '/bookmarks/new' do
   @bookmarks = current_user.bookmarks.all
+  @selected_menu_option = 'add-new-bookmark'
   erb :"menu-options/add-new-bookmark"
 end

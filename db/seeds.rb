@@ -2,40 +2,6 @@ require 'faker'
 
 # create example users
 
-# master = User.create!({
-#   name: "Master User",
-#   email: "master@user.com",
-#   password: "asdfhjkl"
-# })
-
-# creator = User.create!({
-#   name: "Creator User",
-#   email: "creator@user.com",
-#   password: "asdfhjkl"
-# })
-
-# admirer = User.create!({
-#   name: "Admirer User",
-#   email: "admirer@user.com",
-#   password: "asdfhjkl"
-# })
-
-# facebook = Bookmark.create({
-#   name: "Facebook",
-#   url: "https://www.facebook.com"
-# })
-
-# twitter = Bookmark.create({
-#   name: "Twitter",
-#   url: "https://www.twitter.com"
-# })
-
-# master.bookmarks << facebook
-# master.save!
-# master.bookmarks << twitter
-# master.save!
-
-
 20.times do
   User.create(
     name: Faker::Name.name,

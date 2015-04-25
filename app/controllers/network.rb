@@ -1,5 +1,6 @@
 #----------- USER'S NETWORK -----------
 
 get '/network' do
-  erb :"network/_network-sidebar"
+  @selected_menu_option = 'network'
+  erb :"menu-options/network"
 end
