@@ -4,4 +4,9 @@
 
 
   <h1>Account Settings</h1>
+
+  <form class="settings" action="/settings" method="post">
+    <p>Name: <input type="text" value="<%= current_user.name %>"></p>
+    <p>Email: <input type="text" value="<%= current_user.email %>"></p>
+  </form>
 </div>
