@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/css/_bookmarks-content.css">
   <link rel="stylesheet" href="/css/menu/my-bookmarks.css">
   <link rel="stylesheet" href="/css/menu/add-new-bookmark.css">
+  <link rel="stylesheet" href="/css/network/_network-sidebar.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
@@ -30,9 +31,17 @@
         <!-- google plus signin code -->
         <a style="cursor:pointer" onclick="login()"/>Login with Google Plus</a>
         <a style="cursor:pointer" onclick="logout()"/>Logout</a>
+        <%= erb :"network/_facebook-login" %>
         <div id="profile"></div>
         <!-- end of google plus signin code -->
 
+        <!-- facebook LOGIN/LOGOUT code -->
+        <!-- original -->
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+        </fb:login-button>
+        <div id="status">
+        </div>
+        <!-- end of facebook LOGIN/LOGOUT code -->
       </div>
 
     <% end %>

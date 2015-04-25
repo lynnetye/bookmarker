@@ -1,5 +1,5 @@
 #----------- USER'S NETWORK -----------
 
 get '/network' do
-  erb :"_user-homepage"
+  erb :"network/_network-sidebar"
 end

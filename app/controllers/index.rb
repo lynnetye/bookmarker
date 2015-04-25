@@ -29,3 +29,23 @@ get '/logout' do
   logout!
   redirect '/'
 end
+
+#----------- LOGIN WITH FACEBOOK -----------
+
+post '/facebook-login' do
+  email = params[:email]
+  if User.where(email: email).first == nil
+    User.create!({
+      name: params[:first] + " " + params[:last],
+      email: email
+    })
+  end
+  @user = User.where(email: email).first
+  login_as_user(@user)
+  puts "*" * 60
+  puts "@user.id:"
+  puts @user.id
+  puts "session info:"
+  puts session[:user_id]
+  return { success: true }.to_json
+end

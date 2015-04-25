@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   # validations
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  # note: password is not needed for users signing in via facebook
 
   include BCrypt
 

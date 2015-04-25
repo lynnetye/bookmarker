@@ -1,0 +1,15 @@
+.network-list {
+  float: right;
+  margin: 50px auto;
+}
+
+.network-list > li {
+  height: 50px;
+  overflow: hidden;
+  width: 50px;
+}
+
+.network-list > li > img {
+  margin: 2px;
+  width: 100%;
+}
