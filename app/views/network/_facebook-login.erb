@@ -50,6 +50,7 @@
 
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
+    console.log(response.authResponse.accessToken);
   });
 
   };
@@ -71,7 +72,7 @@
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-
+        debugger
       // ADD AJAX CALL TO LOGIN WITH Facebook
       var request = $.ajax({
         url: '/facebook-login',

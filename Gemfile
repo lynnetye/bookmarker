@@ -18,6 +18,8 @@ gem 'rake'
 gem 'bcrypt-ruby'
 gem 'shotgun'
 
+gem 'faker'
+
 gem 'dotenv'
 
 # gem 'httparty'
@@ -30,5 +32,4 @@ end
 group :test, :development do
   # gem 'rspec'
   gem 'factory_girl'
-  gem 'faker'
 end
