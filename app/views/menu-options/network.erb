@@ -7,7 +7,16 @@
   <% first_twelve_users.each do |user| %>
     <p>
       <a href="/network/<%= user.id%>"><%= user.name %></a>
-      <a class="add-to-network" href="/add">Add</a>
+
+      <% if current_user.creators.include?(User.find(user.id)) %>
+        <a class="remove-from-network" user="<%= user.id %>" href="/network/remove/<%= user.id %>">Remove</a>
+        <a class="add-to-network hide" user="<%= user.id %>" href="/network/add/<%= user.id %>">Add</a>
+      <% else %>
+        <a class="remove-from-network hide" user="<%= user.id %>" href="/network/remove/<%= user.id %>">Remove</a>
+        <a class="add-to-network" user="<%= user.id %>" href="/network/add/<%= user.id %>">Add</a>
+      <% end %>
     </p>
   <% end %>
 </div>
+
+<%= erb :"/network/_network-sidebar" %>

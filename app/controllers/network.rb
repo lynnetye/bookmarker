@@ -14,9 +14,20 @@ get '/network/:user_id' do
   erb :"menu-options/_network-friends-bookmarks"
 end
 
-get '/add/:user_id' do
-  user_to_add = User.where(id: params[:id]).first
+get '/network/add/:user_id' do
+  user_to_add = User.where(id: params[:user_id]).first
 
+  puts "*" * 60
   current_user.creators << user_to_add
   current_user.save!
+  content_type :json
+  { user: user_to_add }.to_json
+end
+
+get '/network/remove/:user_id' do
+  user_to_remove = User.where(id: params[:user_id]).first
+  current_user.creators.delete(user_to_remove)
+  current_user.save!
+  content_type :json
+  { user: user_to_remove }.to_json
 end

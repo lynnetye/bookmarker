@@ -6,7 +6,8 @@ require 'faker'
   User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: 'asdfhjkl'
+    password: 'asdfhjkl',
+    image: Faker::Avatar.image
   )
 end
 
@@ -14,8 +15,7 @@ User.all.each do |user|
   100.times do
     user.bookmarks << Bookmark.new(
       name: Faker::Lorem.word,
-      url: Faker::Internet.url,
-      image: Faker::Avatar.image("slug", "50x50", "jpg")
+      url: Faker::Internet.url
     )
   end
 end

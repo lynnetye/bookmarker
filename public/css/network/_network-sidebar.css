@@ -5,11 +5,31 @@
 
 .network-list > li {
   height: 50px;
-  overflow: hidden;
+  /*overflow: hidden;*/
   width: 50px;
+  position: relative;
 }
 
 .network-list > li > img {
   margin: 2px;
   width: 100%;
+}
+
+.network-list > li:hover > p {
+  display: inline-block;
+}
+
+.network-list > li:hover > img {
+  border: 1px solid gray;
+}
+
+
+.network-list > li > p {
+  display: none;
+  margin-top: -0.6em;
+  right: calc(100% + 8px);
+  position: absolute;
+  text-align: right;
+  top: 60%;
+  white-space: nowrap;
 }

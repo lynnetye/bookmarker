@@ -8,7 +8,8 @@
   font-weight: bold;
 }
 
-.add-to-network {
+.add-to-network,
+.remove-from-network {
   float: right;
   margin-left: 100px;
 }

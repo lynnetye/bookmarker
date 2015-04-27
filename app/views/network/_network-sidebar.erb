@@ -1,34 +1,25 @@
-<div class="container">
-  <ul class="network-list">
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-    <li>
-      <img src="http://www.wired.com/wp-content/uploads/blogs/magazine/wp-content/images/ff_ycombinator_portraits/Taskforce_Courtland-Allen_MG_5669.jpg">
-    </li>
-  </ul>
-</div>
+<ul class="network-list">
+  <% @network = current_user.creators %>
+  <% if @network.length < 10 %>
+    <% @network = @network + current_user.admirers %>
+  <% end %>
+  <% @no_image = 'http://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Pessoa_Neutra.svg/2000px-Pessoa_Neutra.svg.png' %>
+
+  <% @network.each do |friend| %>
+    <% if friend.image == nil %>
+      <li class="<%= friend.id %>">
+        <img src="<%= @no_image %>">
+        <p><%= friend.name %></p>
+      </li>
+    <% else %>
+      <li class="<%= friend.id %>">
+        <img src="<%= friend.image %>">
+        <p><%= friend.name %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
 
 
 <!-- facebook SDK -->
