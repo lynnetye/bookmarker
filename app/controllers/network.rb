@@ -13,3 +13,10 @@ get '/network/:user_id' do
 
   erb :"menu-options/_network-friends-bookmarks"
 end
+
+get '/add/:user_id' do
+  user_to_add = User.where(id: params[:id]).first
+
+  current_user.creators << user_to_add
+  current_user.save!
+end

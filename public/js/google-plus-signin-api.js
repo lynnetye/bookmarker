@@ -5,7 +5,7 @@ function logout() {
 
 function login() {
   var myParams = {
-    'clientid' : "704604537449-4b85mpoilelcccu7e1mf4feaho6jrbk7.apps.googleusercontent.com",
+    'clientid' : '1035533829067-nie5rpjn00bj5m64442l4p8t6l9o50bk.apps.googleusercontent.com',
     'cookiepolicy' : 'single_host_origin',
     'callback' : 'loginCallback',
     'approvalprompt':'force',
@@ -15,10 +15,16 @@ function login() {
 }
 
 function loginCallback(result) {
-            debugger
     if(result['status']['signed_in']) {
         var request = gapi.client.plus.people.get({
             'userId': 'me'
+        });
+        debugger
+        request.done(function (response){
+            debugger
+            // if (response.status === 'true') {
+            // window.location = '/bookmarks';
+            // }
         });
         request.execute(function (resp) {
             var email = '';
@@ -41,6 +47,16 @@ function loginCallback(result) {
     }
 }
 function onLoadCallback() {
-    gapi.client.setApiKey("AIzaSyCGKXe6ORybY5kDr_hSSQBWhuY8m3KDNl8");
+    gapi.client.setApiKey('AIzaSyBCOVwBDcKvimPn_SLHGjUWbcGKbn32H6E');
     gapi.client.load('plus', 'v1',function(){});
 }
+
+gapi.client.load('plus','v1', function(){
+ var request = gapi.client.plus.people.list({
+   'userId': 'me',
+   'collection': 'visible'
+ });
+ request.execute(function(resp) {
+   console.log('Num people visible:' + resp.totalItems);
+ });
+});

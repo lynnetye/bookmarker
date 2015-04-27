@@ -14,7 +14,8 @@ User.all.each do |user|
   100.times do
     user.bookmarks << Bookmark.new(
       name: Faker::Lorem.word,
-      url: Faker::Internet.url
+      url: Faker::Internet.url,
+      image: Faker::Avatar.image("slug", "50x50", "jpg")
     )
   end
 end

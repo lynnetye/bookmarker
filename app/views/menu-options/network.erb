@@ -7,6 +7,7 @@
   <% first_twelve_users.each do |user| %>
     <p>
       <a href="/network/<%= user.id%>"><%= user.name %></a>
+      <a class="add-to-network" href="/add">Add</a>
     </p>
   <% end %>
 </div>
