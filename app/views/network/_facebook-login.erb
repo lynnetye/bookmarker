@@ -71,8 +71,6 @@
 
     FB.api('/me', function (response) {
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
 
       // ADD AJAX CALL TO LOGIN WITH Facebook
       var request = $.ajax({
@@ -95,6 +93,19 @@
       });
     });
 
+    FB.api('/me/picture', function (response) {
+      var pictureUrl = response.data.url,
+          request = $.ajax({
+            url: '/profile-picture',
+            type: 'GET',
+            data: { url: pictureUrl },
+            dataType: 'json'
+          });
+
+      request.done(function(response){
+        console.log("Profile picture saved successfully")
+      })
+    });
   }
 </script>
 

@@ -30,3 +30,14 @@ get '/network/remove/:user_id' do
   content_type :json
   { user: user_to_remove }.to_json
 end
+
+get '/update-facebook-friend' do
+  puts params
+  puts "*" * 60
+  @friend = User.where(name: params[:name]).first
+  @friend.image = params[:picture]
+  @friend.save!
+
+  content_type :json
+  { friend: @friend }.to_json
+end

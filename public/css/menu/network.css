@@ -3,13 +3,64 @@
   margin-right: 20px;
 }
 
-.network > h1 {
-  font-size: 32px;
+.network > section > h1 {
+  font-size: 26px;
   font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.network article > img {
+  height: 50px;
+  width: 50px;
+}
+
+.network article > a {
+  color: black;
+}
+
+.network article > img,
+.network article > a {
+  vertical-align: middle;
 }
 
 .add-to-network,
 .remove-from-network {
   float: right;
-  margin-left: 100px;
+}
+
+.network > section > article {
+  margin-left: 30px;
+  position: relative;
+}
+
+.network a.add-to-network,
+.network a.remove-from-network {
+  font-size: 16px;
+  padding: 17px 0px;
+}
+
+.network > section {
+  margin-bottom: 35px;
+}
+
+button.find-FB-friends-button,
+button.find-twitter-friends-button,
+button.find-other-users-button {
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  height: 40px;
+  width: 180px;
+}
+
+button.find-FB-friends-button {
+  background-color: #3B5998;
+}
+
+button.find-twitter-friends-button {
+  background-color: #4099FF;
+}
+
+button.find-other-users-button {
+  background-color: #E83317;
 }

@@ -52,3 +52,11 @@ post '/facebook-login' do
 
   return { success: true }.to_json
 end
+
+
+get '/profile-picture' do
+  current_user.image = params[:url]
+  current_user.save!
+
+  { success: true }.to_json
+end

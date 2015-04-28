@@ -1,0 +1,14 @@
+<% @list_of_friends.each do |user| %>
+  <article>
+    <img src="<%= user.image %>">
+    <a class="user-name" href="/network/<%= user.id%>"><%= user.name %></a>
+
+    <% if current_user.creators.include?(User.find(user.id)) %>
+      <a class="remove-from-network" user="<%= user.id %>" href="/network/remove/<%= user.id %>"><i class="fa fa-minus-circle"></i>Remove</a>
+      <a class="add-to-network hide" user="<%= user.id %>" href="/network/add/<%= user.id %>"><i class="fa fa-plus-circle"></i>Add</a>
+    <% else %>
+      <a class="remove-from-network hide" user="<%= user.id %>" href="/network/remove/<%= user.id %>"><i class="fa fa-minus-circle"></i>Remove</a>
+      <a class="add-to-network" user="<%= user.id %>" href="/network/add/<%= user.id %>"><i class="fa fa-plus-circle"></i>Add</a>
+    <% end %>
+  </article>
+<% end %>

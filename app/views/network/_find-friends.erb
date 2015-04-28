@@ -1,0 +1,21 @@
+<div class="find-other-users">
+  <h1>Other popular users!</h1>
+  <% @list_of_friends = [] %>
+  <% @users_not_in_network.each do |user| %>
+    <% if user.facebook_id == nil %>
+      <% @list_of_friends.push(user) %>
+    <% end %>
+  <% end %>
+  <%= erb :"/network/_list-of-friends" %>
+</div>
+
+<div class="facebook-friends hide">
+  <h1>Your Friends on Facebook</h1>
+  <article class="hide">
+    <img>
+    <a class="user-name" href="/network/:id"></a>
+    <a class="remove-from-network" user=":id" href="/network/remove/:id"><i class="fa fa-minus-circle"></i>Remove</a>
+    <a class="add-to-network hide" user=":id" href="/network/add/:id"><i class="fa fa-plus-circle"></i>Add</a>
+  </article>
+</div>
+

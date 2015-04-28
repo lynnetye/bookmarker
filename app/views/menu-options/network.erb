@@ -1,27 +1,26 @@
 <%= erb :"/menu-options/_menu" %>
 
-<div class="page-content network">
-  <h1>Find Friends</h1>
-  <button class="find-FB-friends-button" onclick="findFriends()" type="button">Find Facebook Friends</button>
-
-<!-- TO DO -->
-<!-- separate sections for finding friends (facebook vs. other) -->
-
-  <% first_twelve_users = User.all.first(12) %>
-  <% first_twelve_users.each do |user| %>
-    <p>
-      <a href="/network/<%= user.id%>"><%= user.name %></a>
-
-      <% if current_user.creators.include?(User.find(user.id)) %>
-        <a class="remove-from-network" user="<%= user.id %>" href="/network/remove/<%= user.id %>">Remove</a>
-        <a class="add-to-network hide" user="<%= user.id %>" href="/network/add/<%= user.id %>">Add</a>
-      <% else %>
-        <a class="remove-from-network hide" user="<%= user.id %>" href="/network/remove/<%= user.id %>">Remove</a>
-        <a class="add-to-network" user="<%= user.id %>" href="/network/add/<%= user.id %>">Add</a>
-      <% end %>
-    </p>
+<% @list_of_friends = current_user.creators.first(12) %>
+<% @users_not_in_network = [] %>
+<% User.all.each do |user| %>
+  <% if !@list_of_friends.include? user %>
+    <% @users_not_in_network.push(user) %>
   <% end %>
-</div>
+<% end %>
 
+<div class="page-content network">
+  <section>
+    <h1>Your Network</h1>
+    <%= erb :"/network/_list-of-friends" %>
+  </section>
+  <section>
+    <h1>Expand Your Network!</h1>
+    <button class="find-FB-friends-button" onclick="findFriends()" type="button">Facebook Friends</button>
+    <button class="find-twitter-friends-button" type="button">Twitter Follows</button>
+    <button class="find-other-users-button" onclick="findOtherUsers()" type="button">Other Cool Peeps</button>
+  </section>
+  <section class="find-friends-section">
+    <%= erb :"/network/_find-friends" %>
+  </section>
+</div>
 <%= erb :"/network/_network-sidebar" %>
-<!-- <script src="js/network.js"></script> -->
