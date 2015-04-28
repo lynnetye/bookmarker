@@ -2,7 +2,7 @@
 
 get '/' do
   if session[:user_id]
-    @bookmarks = users_bookmarks
+    @bookmarks = users_bookmarks || []
   end
   erb :index
 end
@@ -50,7 +50,7 @@ post '/facebook-login' do
   @user = User.where(email: email).first
   login_as_user(@user)
 
-  return { success: true }.to_json
+  return { success: true, user: @user }.to_json
 end
 
 

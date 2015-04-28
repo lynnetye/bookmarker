@@ -14,17 +14,6 @@ $(document).ready(function() {
     var pageContainer = $(this).closest(".page-container");
     var matchingSection = pageContainer.find("div.page-content." + keyTag)
     var sectionContent = pageContainer.find("section.content");
-
-    // debugger
-    // matchingSection.removeClass("hide")
-    // matchingSection.siblings().addClass("hide")
-    // sectionContent.removeClass("hide")
-    // $("#x").removeClass("hide")
-
-    // closing the contents box
-    // $("#x").on("click", function(){
-    //   sectionContent.addClass("hide")
-    // })
   })
 
 });
