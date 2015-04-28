@@ -1,8 +1,11 @@
 <%= erb :"/menu-options/_menu" %>
 
 <div class="page-content network">
-  <button class="find-FB-friends-button" onclick="findFriends()" type="button">Find Facebook Friends</button>
   <h1>Find Friends</h1>
+  <button class="find-FB-friends-button" onclick="findFriends()" type="button">Find Facebook Friends</button>
+
+<!-- TO DO -->
+<!-- separate sections for finding friends (facebook vs. other) -->
 
   <% first_twelve_users = User.all.first(12) %>
   <% first_twelve_users.each do |user| %>

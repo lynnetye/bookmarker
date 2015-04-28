@@ -7,7 +7,6 @@ $(document).ready(function (){
           type: 'GET'
         });
 
-
     request.done(function (response){
       var user = response.user,
           id = user.id.toString(),
@@ -47,11 +46,15 @@ $(document).ready(function (){
 function findFriends() {
   FB.getLoginStatus(function (response) {
     if (response.status === 'connected') {
-      FB.api('/me/friends', function (response) {
-        debugger;
+      FB.api('me/friends?fields=name,picture,birthday', function (response) {
+        var allFacebookFriends = response.data;
+
+        for (var i = 0; i < allFacebookFriends.length; i++ ){
+          console.log(allFacebookFriends[i].picture.data.url);
+        }
       });
     }
   }, true);
 };
 
-  // 100521266484588
+// 100521266484588
