@@ -1,6 +1,7 @@
 <%= erb :"/menu-options/_menu" %>
 
 <div class="page-content network">
+  <button class="find-FB-friends-button" onclick="findFriends()" type="button">Find Facebook Friends</button>
   <h1>Find Friends</h1>
 
   <% first_twelve_users = User.all.first(12) %>
@@ -20,3 +21,4 @@
 </div>
 
 <%= erb :"/network/_network-sidebar" %>
+<!-- <script src="js/network.js"></script> -->

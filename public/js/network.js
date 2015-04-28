@@ -43,3 +43,15 @@ $(document).ready(function (){
     });
   });
 });
+
+function findFriends() {
+  FB.getLoginStatus(function (response) {
+    if (response.status === 'connected') {
+      FB.api('/me/friends', function (response) {
+        debugger;
+      });
+    }
+  }, true);
+};
+
+  // 100521266484588

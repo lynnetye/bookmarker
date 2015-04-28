@@ -17,7 +17,6 @@ end
 get '/network/add/:user_id' do
   user_to_add = User.where(id: params[:user_id]).first
 
-  puts "*" * 60
   current_user.creators << user_to_add
   current_user.save!
   content_type :json

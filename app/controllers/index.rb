@@ -33,19 +33,22 @@ end
 #----------- LOGIN WITH FACEBOOK -----------
 
 post '/facebook-login' do
+  session[:accessToken] = params[:accessToken]
+  session[:facebookID] = params[:fb_id]
   email = params[:email]
   if User.where(email: email).first == nil
     User.create!({
       name: params[:first] + " " + params[:last],
-      email: email
+      email: email,
+      facebook_id: params[:facebook_id]
     })
+  else
+    @user = User.where(email: email).first
+    @user.facebook_id = params[:facebook_id]
+    @user.save!
   end
   @user = User.where(email: email).first
   login_as_user(@user)
-  puts "*" * 60
-  puts "@user.id:"
-  puts @user.id
-  puts "session info:"
-  puts session[:user_id]
+
   return { success: true }.to_json
 end
