@@ -1,13 +1,19 @@
 /*forms*/
-.page-content > #create-bookmark {
+.add-new-bookmark > #create-bookmark {
+  background-color: #151617;
   margin: 60px auto;
   width: 60%;
 }
 
-.page-content > #create-bookmark > input {
+.add-new-bookmark > #create-bookmark > div {
   font-size: 24px;
+  display: inline;
 }
 
-#create-bookmark > input[type=submit] {
+#create-bookmark input[type=submit] {
+  background-color: #151617;
+  border: none;
+  color: #EDF8FF;
+  cursor: pointer;
   font-size: 24px;
 }

@@ -1,3 +1,5 @@
+#----------- ADD A NEW BOOKMARK -----------
+
 post '/bookmarks' do
   name = params[:name]
   url = params[:url]
@@ -8,6 +10,4 @@ post '/bookmarks' do
   current_user.bookmarks << @bookmark
   current_user.save!
   redirect '/bookmarks'
-  # content_type :json
-  # {name: name, url: url}.to_json
 end
