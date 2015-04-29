@@ -62,12 +62,29 @@ function findFriends() {
           request.done(function(response){
             var $fbSection = $('.facebook-friends'),
                 $otherUsersSection = $('.find-other-users'),
-                $articleClone = $('.facebook-friends article').clone();
+                $articleClone = $('.facebook-friends article').clone(),
+                $userNameLink = $articleClone.find('a.user-name'),
+                $removeButton = $articleClone.find('a.remove-from-network'),
+                $addButton =  $articleClone.find('a.add-to-network'),
+                userID = response.friend.id,
+                status = response.already_in_network;
 
             $fbSection.removeClass('hide');
             $otherUsersSection.addClass('hide');
             $articleClone.find('img').attr('src', response.friend.image );
-            $articleClone.find('a.user-name').text(response.friend.name);
+            $userNameLink.text(response.friend.name);
+            $userNameLink.attr('href', "/network/" + userID);
+            $removeButton.attr('href', '/network/remove/' + userID);
+            $removeButton.attr('user', userID);
+            $addButton.attr('href', '/network/add/' + userID);
+            $addButton.attr('user', userID);
+
+            if ( status ) {
+              $removeButton.removeClass('hide');
+            } else {
+              $addButton.removeClass('hide');
+            }
+
             $articleClone.removeClass('hide');
             $articleClone.appendTo($fbSection);
           })

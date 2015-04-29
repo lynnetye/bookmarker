@@ -32,12 +32,12 @@ get '/network/remove/:user_id' do
 end
 
 get '/update-facebook-friend' do
-  puts params
-  puts "*" * 60
   @friend = User.where(name: params[:name]).first
   @friend.image = params[:picture]
   @friend.save!
 
+  @in_network = current_user.creators.include?(@friend)
+
   content_type :json
-  { friend: @friend }.to_json
+  { friend: @friend, already_in_network: @in_network }.to_json
 end
