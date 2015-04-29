@@ -1,7 +1,7 @@
-var $targetArticle = $('.network article.user-story');
 $(document).ready(function (){
+  var $targetDiv = $('.network');
 
-  $targetArticle.on('click', 'a.add-to-network', function (event){
+  $targetDiv.on('click', 'a.add-to-network', function (event){
     event.preventDefault();
     var path = $(this).attr('href'),
         request = $.ajax({
@@ -23,7 +23,7 @@ $(document).ready(function (){
     });
   });
 
-  $targetArticle.on('click', 'a.remove-from-network', function (event){
+  $targetDiv.on('click', 'a.remove-from-network', function (event){
     event.preventDefault();
     var path = $(this).attr('href'),
         request = $.ajax({
@@ -64,7 +64,7 @@ function findFriends() {
           request.done(function(response){
             var $fbSection = $('.facebook-friends'),
                 $otherUsersSection = $('.find-other-users'),
-                $articleClone = $('.facebook-friends article.user-story').clone(),
+                $articleClone = $('.network article.user-story').first().clone(),
                 $userNameLink = $articleClone.find('a.user-name'),
                 $removeButton = $articleClone.find('a.remove-from-network'),
                 $addButton =  $articleClone.find('a.add-to-network'),
@@ -78,8 +78,10 @@ function findFriends() {
             $userNameLink.attr('href', "/network/" + userID);
             $removeButton.attr('href', '/network/remove/' + userID);
             $removeButton.attr('user', userID);
+            $removeButton.addClass('hide');
             $addButton.attr('href', '/network/add/' + userID);
             $addButton.attr('user', userID);
+            $addButton.addClass('hide');
 
             if ( status ) {
               $removeButton.removeClass('hide');
