@@ -1,5 +1,7 @@
+var $targetArticle = $('.network article.user-story');
 $(document).ready(function (){
-  $('.add-to-network').on('click', function (event){
+
+  $targetArticle.on('click', 'a.add-to-network', function (event){
     event.preventDefault();
     var path = $(this).attr('href'),
         request = $.ajax({
@@ -21,7 +23,7 @@ $(document).ready(function (){
     });
   });
 
-  $('.remove-from-network').on('click', function (event){
+  $targetArticle.on('click', 'a.remove-from-network', function (event){
     event.preventDefault();
     var path = $(this).attr('href'),
         request = $.ajax({
@@ -62,7 +64,7 @@ function findFriends() {
           request.done(function(response){
             var $fbSection = $('.facebook-friends'),
                 $otherUsersSection = $('.find-other-users'),
-                $articleClone = $('.facebook-friends article').clone(),
+                $articleClone = $('.facebook-friends article.user-story').clone(),
                 $userNameLink = $articleClone.find('a.user-name'),
                 $removeButton = $articleClone.find('a.remove-from-network'),
                 $addButton =  $articleClone.find('a.add-to-network'),
@@ -99,5 +101,4 @@ function findOtherUsers() {
 
   $otherUsersSection.removeClass('hide');
   $otherUsersSection.siblings().addClass('hide');
-}
-// 100521266484588
+};
