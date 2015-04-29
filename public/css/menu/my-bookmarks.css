@@ -46,4 +46,14 @@ span.bookmark-action-delete {
 .my-bookmarks > .bookmark:hover .bookmark-action-edit,
 .my-bookmarks > .bookmark:hover .bookmark-action-delete {
   display: inline-block;
+  font-size: 16px;
+}
+
+/*styling*/
+.my-bookmarks > .bookmark:hover .bookmark-url-link {
+  font-size: 18px;
+  width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
